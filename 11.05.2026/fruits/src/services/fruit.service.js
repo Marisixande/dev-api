@@ -1,4 +1,14 @@
 class FruitsServices {
+     async getAll() {
+        const fruits = await pool.query('SELECT * FROM public.maria_frutinhas' );
+        return fruits || [];
+    }
+
+    async getById(id) {
+        const fruits = await readfruits();
+        return (fruits || []).find(item => item.id === Number(id)) || null;
+    }
+
   async createFruit(nome) {
     const fruits = await readFruits();
 

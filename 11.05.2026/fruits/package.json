@@ -1,0 +1,14 @@
+{
+  "name": "Fruta",
+  "version": "1",
+  "type": "module",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch src/server.js"
+  },
+  "dependencies": {
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  }
+}

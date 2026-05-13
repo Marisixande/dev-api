@@ -1,0 +1,3 @@
+succTrue ((res), ){
+
+}

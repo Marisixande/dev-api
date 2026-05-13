@@ -1,12 +1,16 @@
+import { pool } from './db.js';
+
 class FruitsServices {
      async getAll() {
-        const fruits = await pool.query('SELECT * FROM public.maria_frutinhas' );
-        return fruits || [];
+      const query = 'SELECT * FROM public.maria_frutinhas';
+        const fruits = await pool.query(query);
+        return fruits.rows || [];
     }
 
     async getById(id) {
-        const fruits = await readfruits();
-        return (fruits || []).find(item => item.id === Number(id)) || null;
+      const query = 'SELECT * FROM public.maria_frutinhas WHERE id = $1';//WHERE id = $1: Filters the results to only include rows where the id column matches the value assigned to the first parameter placeholder, $1 ---> thats what the AI said when i asked about it so i hope its true lol
+        const fruits = await pool.query(query, [id]);
+        return (fruits.rows[0] || []);
     }
 
   async createFruit(nome) {

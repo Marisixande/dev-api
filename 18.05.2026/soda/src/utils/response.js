@@ -1,3 +1,1 @@
-succTrue ((res), ){
-
-}
+succTrue ((res), );{}
